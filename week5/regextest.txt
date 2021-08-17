@@ -1,0 +1,28 @@
+Hello
+Welcome to this text
+My phone number is 0476 832 744
+may I add 4323
+and also maybe 645
+how about 555
+or 777 if okay?
+also lets list some passwords:
+hello123
+password
+Pumpk1n$k1nG
+thispasswordisquitelongisntit
+h0W%c0uLD4ny0n3p0sS1bLyGu3sStH150n3
+Here is some more text to see
+That talks about something
+But what that is I don't know
+How are you
+today
+I'm not bad thank you how are you
+It's good to be here. You've grown so much!
+Good
+
+echo "Hello there sir"
+
+\w+
+
+.*['A-Za-z]+[\s.,:!?]+['A-Za-z]+[\s.,:!?]+['A-Za-z]+[\s.,:!?]+
+\b['A-Za-z]+\b[\s.,!?:]+\b['A-Za-z]+\b[\s.,!?:]+\b['A-Za-z]+\b[\s.,!?:]+

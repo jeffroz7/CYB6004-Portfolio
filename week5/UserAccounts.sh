@@ -5,6 +5,7 @@ awk '
 BEGIN { 
 
     # Here, we set the field separator to ":". 
+    # If we do not set the field separator to ":", we will not be able to use awk correctly as the default FS is " " (a whitespace).
     # We can see that the data in /etc/passwd is separated by ":" by running a command such as: cat /etc/passwd.
     # We set FS in "BEGIN" so that it is set to : before any data is processed. By doing this, we know all the data will be processed correctly.
 

@@ -20,14 +20,16 @@ LCy='\033[1;36m'
 ./passwordCheck.sh
 
 # The below if statement determines whether the exit code of passwordCheck.sh is 0 (correct password) or 1 (incorrect password).
+# The variable #? is the exit code status of passwordCheck.sh
 if [[ $? = "0" ]]; then
 
-# Create a C-like for loop for all of the different menu options.
+    # Create a C-like for loop for all of the different menu options.
+    # The user is only able to "access" this menu if the exit code of the passwordCheck.sh script is 0.
+    # In passwordCheck.sh, we set the exit code of the script as 0 if the user enters the correct password.
 
     for ((i = 1; i > 0; ++i)); do
 
         # Below creates a list of things the user can do in the menu.
-
         echo -e $Red"W"$Blu"e"$Gre"l"$Purp"c"$Cy"o"$Yel"m"$Bro"e" $Red"t"$Blu"o" $Gre"t"$Purp"h"$Cy"e" $Yel"M"$Bro"e"$Red"n"$Blu"u"$NoCol
         echo
         echo -e $LCy"1. Create a folder"
@@ -40,16 +42,21 @@ if [[ $? = "0" ]]; then
         echo -e "8. Exit"$NoCol
         echo
 
-        # Stores the user's selection as the variable option.
+        # Stores the user's selection as the variable 'option'.
         read -p "Select an option: " option
 
         case $option in
 
+            # Executes a different script depending on the user input, or exits the menu.
             1) ./foldermaker.sh;;
             2) ./foldercopier.sh;;
             3) ./setPassword.sh;;
             4) ./calculator.sh;;
             5) 
+
+                # megafoldermaker.sh takes 2 command line variables as input.
+                # Therefore, in order for the user to be able to run megafoldermaker.sh correctly, it needs 2 command line arguments/variables.
+                # The two read prompts ask the user for "from" and "to" week numbers and add them as command line variables, allowing megafoldermaker.sh to run correctly.
                 read -p "Create folders from Week: " val_1
                 read -p "To Week: " val_2
                 ./megafoldermaker.sh $val_1 $val_2
@@ -59,8 +66,7 @@ if [[ $? = "0" ]]; then
             7) ./downloader.sh;;
             8|exit|Exit) 
 
-                echo -e $LPurp"Goodbye"$NoCol
-                echo
+                echo -e "$LPurpGoodbye$NoCol\n"
                 exit 
                 ;;
 
@@ -72,7 +78,8 @@ if [[ $? = "0" ]]; then
 
 else
 
-    # If the exist statement is 1, then the password was not entered correctly and thus the user does not have access to the above menu.
+    # If the exit statement is 1, then the password was not entered correctly and thus the user does not have access to the above menu.
+    # We set the exit code for a failed login attempt in passwordCheck.sh as 1.
     exit 1
 
 fi
